@@ -13,6 +13,7 @@ import datetime
 def request_sail_ticket(request_param, show_available_only=False):
     """
     获取剩余船票
+    :param show_available_only: 只显示有船票的日期
     :param request_param: 请求参数
     :return: 格式化后的船票余量信息
     """
@@ -38,13 +39,14 @@ def request_sail_ticket(request_param, show_available_only=False):
     }
 
     response = requests.request("POST", url, headers=headers, data=payload)
-    ret = message_process(json.loads(response.content), show_available_only)
-    return ret
+    result = message_process(json.loads(response.content), show_available_only)
+    return result
 
 
 def message_process(message, show_available_only=False):
     """
     筛选原始数据
+    :param show_available_only: 只显示有船票的日期
     :param message: 请求数据
     :return: 筛选后数据(Json)
     """

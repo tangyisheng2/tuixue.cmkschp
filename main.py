@@ -5,11 +5,22 @@
 # @Author    :Eason Tang
 
 from helper import request_sail_ticket, create_assist_date
+from bark_helper import bark_push
+
+# ==================================
+# Global Settings
+# Bark Push
+enable_bark = False
+bark_token = ""
+# Ticket Stuff
+startSite = "SK"
+endSite = "HKA"
+startDate = "2021-08-1"
+endDate = "2021-08-18"
+# ==================================
 
 if __name__ == '__main__':
-    startSite = "SK"
-    endSite = "HKA"
-    toDate = create_assist_date(datestart="2021-08-1", dateend="2021-08-18")  # 船票的起止时间
+    toDate = create_assist_date(datestart=startDate, dateend=endDate)  # 船票的起止时间
 
     for date in toDate:
         ret = request_sail_ticket(request_param={
@@ -20,4 +31,5 @@ if __name__ == '__main__':
             show_available_only=True)
         if ret is not None:
             print(ret)
-
+            if enable_bark:
+                bark_push(token=bark_token, title="船票Get", content=ret)
