@@ -27,7 +27,7 @@ def bark_push(token: str, title: str, content):
 
 
 def beautify_results(contents):
-    res = f"{contents['shipName']}在{contents['startDate']}{contents['goTime']}有："
+    res = f"{contents['shipName']}在{contents['startDate']} {contents['goTime']}有："
     for seatType in contents['seatRemaining']:
         for key in seatType:
             res += f"{key}-{seatType[key]}张;"
