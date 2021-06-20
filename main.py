@@ -10,13 +10,14 @@ from bark_helper import bark_push
 # ==================================
 # Global Settings
 # Bark Push
-enable_bark = False
-bark_token = ""
+enable_bark = False         # 启用Bark推送
+bark_token = ""             # Bark推送ID
 # Ticket Stuff
-startSite = "SK"
-endSite = "HKA"
-startDate = "2021-08-1"
+startSite = "SK"            # 始发站点
+endSite = "HKA"             # 目标站点
+startDate = "2021-08-1"     # 船票搜索日期
 endDate = "2021-08-18"
+show_available_only = True  # 只显示有票的日期
 # ==================================
 
 if __name__ == '__main__':
@@ -28,7 +29,7 @@ if __name__ == '__main__':
             "endSite": endSite,  # 香港机场
             "toDate": date  # 乘船日期
         },
-            show_available_only=True)
+            show_available_only=show_available_only)
         if ret is not None:
             print(ret)
             if enable_bark:
