@@ -37,6 +37,11 @@ show_available_only = True  # 只显示有票的日期
 
 安装好bark app，复制测试URL中的key至`main.py`中的`bark_token = ""`并且将`enable_bark = False`改为`True`
 
+# 未来计划（不一定填坑）
+
+- 前端网页
+- 邮件推送
+
 # Credits
 
 感谢[tuixue.online](https://github.com/Trinkle23897/tuixue.online-visa) 的灵感。
