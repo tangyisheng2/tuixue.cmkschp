@@ -10,7 +10,7 @@ import json
 import datetime
 
 
-def request_sail_ticket(request_param):
+def request_sail_ticket(request_param, show_available_only=False):
     """
     获取剩余船票
     :param request_param: 请求参数
@@ -38,11 +38,11 @@ def request_sail_ticket(request_param):
     }
 
     response = requests.request("POST", url, headers=headers, data=payload)
-    ret = message_process(json.loads(response.content))
+    ret = message_process(json.loads(response.content), show_available_only)
     return ret
 
 
-def message_process(message):
+def message_process(message, show_available_only=False):
     """
     筛选原始数据
     :param message: 请求数据
@@ -50,16 +50,20 @@ def message_process(message):
     """
     res = []
     for ship_instance in message['message']:
+        if show_available_only and ship_instance['totalRemainVolume'] == "0":
+            break
         ticket_info = {
             "shipName": ship_instance['shipName'],
             "startDate": ship_instance['startDate'],
             "goTime": ship_instance['goTime'],
             "totalRemaining": ship_instance['totalRemainVolume'],
-            "seatRemaining": [{seatType['seatTypeName']: seatType['num']} for seatType in ship_instance['seatList']]
+            "seatRemaining": [{seatType['seatTypeName']: seatType['num']}
+                              for seatType in ship_instance['seatList']]
         }
+
         res.append(ticket_info)
 
-    return res
+    return res if res else None
 
 
 def create_assist_date(datestart=None, dateend=None):
@@ -90,12 +94,9 @@ def create_assist_date(datestart=None, dateend=None):
 
 
 if __name__ == '__main__':
-    create_assist_date("2018-06-28")
-
-if __name__ == '__main__':
     ret = request_sail_ticket(request_param={
         "startSite": "SK",  # 蛇口港
         "endSite": "HKA",  # 香港机场
-        "toDate": "2021-07-16"  # 乘船日期
+        "toDate": "2021-08-16"  # 乘船日期
     })
     print(ret)
