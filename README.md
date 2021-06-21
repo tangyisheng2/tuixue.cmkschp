@@ -35,6 +35,10 @@ show_available_only = True  # 只显示有票的日期
 
 配置完成后运行`python3 main.py`自动抓取相应日期的船票。
 
+![image](https://user-images.githubusercontent.com/16578638/122760727-04c44680-d2ce-11eb-85d7-296da2397c7b.png)
+
+程序运行后将以Json格式输出数据。
+
 # Bark推送(iOS Only)
 
 安装好bark app，复制测试URL中的key至`main.py`中的`bark_token = ""`并且将`enable_bark = False`改为`True`
