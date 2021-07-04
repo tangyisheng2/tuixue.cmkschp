@@ -21,21 +21,24 @@ pip install -r requirements.txt
 ```python
 # ==================================
 # Global Settings
+# Github Action
+enable_gh_action = False  # 启用GitHub Action
 # Bark Push
-enable_bark = False         # 启用Bark推送
-bark_token = ""             # Bark推送ID
+enable_bark = False  # 启用Bark推送
+bark_token = ""  # Bark推送ID
 # Ticket Stuff
-startSite = "SK"            # 始发站点
-endSite = "HKA"             # 目标站点
-startDate = "2021-08-1"     # 船票搜索日期
-endDate = "2021-08-18"
+startSite = "SK"  # 始发站点
+endSite = "HKA"  # 目标站点
+startDate = "2021-08-1"  # 船票搜索日期
+endDate = "2021-08-30"
 show_available_only = True  # 只显示有票的日期
 # ==================================
 ```
 
 配置完成后运行`python3 main.py`自动抓取相应日期的船票。
 
-![image](https://user-images.githubusercontent.com/16578638/122760727-04c44680-d2ce-11eb-85d7-296da2397c7b.png)
+![image](https://user-images.githubusercontent.com/16578638/124384063-47d8dd80-dd02-11eb-9cf3-f1dec9220b9c.png)
+
 
 程序运行后将以Json格式输出数据。
 
@@ -43,8 +46,18 @@ show_available_only = True  # 只显示有票的日期
 
 安装好bark app，复制测试URL中的key至`main.py`中的`bark_token = ""`并且将`enable_bark = False`改为`True`
 
+# Github Action定时任务
+
+感谢@DolorHunter
+
+在上方的Actions选项卡中，选择左边的workflows下的crawler，并在右边选择run workflow运行
+
+![image](https://user-images.githubusercontent.com/16578638/124384010-0f390400-dd02-11eb-8447-e1fb63427d2e.png)
+
+
 # 未来计划（不一定填坑）
 
+- 加入Server Chan推送
 - 前端网页
 - 邮件推送
 
