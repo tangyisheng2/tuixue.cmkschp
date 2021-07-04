@@ -3,6 +3,7 @@
 # @FileName  :main.py
 # @Time      :2021/6/20 7:00 PM
 # @Author    :Eason Tang
+import sys
 
 from helper import request_sail_ticket, create_assist_date
 from bark_helper import bark_push
@@ -24,6 +25,9 @@ show_available_only = True  # 只显示有票的日期
 # ==================================
 
 if __name__ == '__main__':
+    if len(sys.argv) > 1 and sys.argv[1] == "--action":
+        enable_gh_action = True  # 检测是否在GitHub Action中运行
+
     toDate = create_assist_date(datestart=startDate, dateend=endDate)  # 船票的起止时间
 
     while True:

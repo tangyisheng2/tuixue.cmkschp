@@ -26,4 +26,4 @@ jobs:
         if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
     - name: Start Crawling & Barking
       run: |
-        python main.py
+        python main.py --action
