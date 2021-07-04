@@ -34,11 +34,11 @@ if __name__ == '__main__':
             },
                 show_available_only=show_available_only)
             if ret is not None:
-                print(ret)
+                print(f'{date}:{ret}')
                 if enable_bark:
                     bark_push(token=bark_token, title="船票Get", content=ret)
             else:
-                print(f'{date}没有可用的船票')
+                print(f'{date}:没有可用的船票')
         if enable_gh_action:
             break
         time.sleep(600)
