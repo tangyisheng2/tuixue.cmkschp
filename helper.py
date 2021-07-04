@@ -8,7 +8,6 @@
 import requests
 import json
 import datetime
-import urllib3.exceptions
 
 
 def request_sail_ticket(request_param, show_available_only=False):
@@ -38,12 +37,17 @@ def request_sail_ticket(request_param, show_available_only=False):
         'Referer': 'https://www.cmskchp.com/sailings',
         'Accept-Language': 'en-US,en;q=0.9,zh-CN;q=0.8,zh;q=0.7,zh-TW;q=0.6',
     }
-    try:
-        response = requests.request("POST", url, headers=headers, data=payload, timeout=3)
-        result = message_process(json.loads(response.content), show_available_only)
-        return result
-    except urllib3.exceptions.ReadTimeoutError:
-        return -1
+
+    cnt = 0
+    while cnt < 3:
+        try:
+            response = requests.request("POST", url, headers=headers, data=payload, timeout=3)
+            result = message_process(json.loads(response.content), show_available_only)
+            return result
+        except requests.exceptions.Timeout:
+            if cnt < 3:
+                continue
+            return -1
 
 
 def message_process(message, show_available_only=False):
