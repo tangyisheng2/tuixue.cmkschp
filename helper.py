@@ -38,7 +38,7 @@ def request_sail_ticket(request_param, show_available_only=False):
         'Accept-Language': 'en-US,en;q=0.9,zh-CN;q=0.8,zh;q=0.7,zh-TW;q=0.6',
     }
 
-    response = requests.request("POST", url, headers=headers, data=payload)
+    response = requests.request("POST", url, headers=headers, data=payload, timeout=3)
     result = message_process(json.loads(response.content), show_available_only)
     return result
 
