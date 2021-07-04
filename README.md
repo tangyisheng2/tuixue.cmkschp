@@ -50,9 +50,30 @@ show_available_only = True  # 只显示有票的日期
 
 感谢@DolorHunter
 
-在上方的Actions选项卡中，选择左边的workflows下的crawler，并在右边选择run workflow运行
+在Github右上角，选择「Use this template」
 
-![image](https://user-images.githubusercontent.com/16578638/124384010-0f390400-dd02-11eb-8447-e1fb63427d2e.png)
+![image](https://user-images.githubusercontent.com/16578638/124387285-7f4e8680-dd10-11eb-8d7e-95684aa94217.png)
+
+选择一个炫酷的名字
+
+![image](https://user-images.githubusercontent.com/16578638/124387328-b45ad900-dd10-11eb-85c6-6eeca13674b5.png)
+
+在软件源创建好后，进入Action标签页，此时你应该能看见运行中的Action任务
+
+![image](https://user-images.githubusercontent.com/16578638/124387355-d2c0d480-dd10-11eb-91e2-04b906d6680a.png)
+
+在Jobs下面的Build中，点选Start Crawling and Barking查看软件爬取的船票信息
+
+![image](https://user-images.githubusercontent.com/16578638/124387368-e835fe80-dd10-11eb-8309-abe5e0a13ec8.png)
+
+任务设置为每天凌晨自动运行，如果想要修改运行频率，请到[这里](https://github.com/tangyisheng2/tuixue.cmkschp/blob/main/.github/workflows/Crawler.yml#L9)进行修改
+
+如果想手动运行：
+
+在Action下Workflows选择Crawler，并在右侧选择Run Workflow即可。
+
+![image](https://user-images.githubusercontent.com/16578638/124387446-4e228600-dd11-11eb-9d0b-2b6fd50db1bb.png)
+
 
 
 # 未来计划（不一定填坑）
