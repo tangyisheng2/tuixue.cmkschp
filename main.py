@@ -38,10 +38,12 @@ if __name__ == '__main__':
                 "toDate": date  # 乘船日期
             },
                 show_available_only=show_available_only)
-            if ret is not None:
+            if ret is not None and ret != -1:
                 print(f'{date}:{ret}')
                 if enable_bark:
                     bark_push(token=bark_token, title="船票Get", content=ret)
+            elif ret == -1:
+                print(f'{date}:爬取失败')
             else:
                 print(f'{date}:没有可用的船票')
         if enable_gh_action:
