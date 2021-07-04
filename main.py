@@ -38,7 +38,7 @@ if __name__ == '__main__':
                 "toDate": date  # 乘船日期
             },
                 show_available_only=show_available_only)
-            if ret is not None and ret is not -1:
+            if ret is not None and ret != -1:
                 print(f'{date}:{ret}')
                 if enable_bark:
                     bark_push(token=bark_token, title="船票Get", content=ret)
