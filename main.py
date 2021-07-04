@@ -6,10 +6,12 @@
 
 from helper import request_sail_ticket, create_assist_date
 from bark_helper import bark_push
+import time
 
 # ==================================
 # Global Settings
 # Bark Push
+enable_gh_action = False  # 启用GitHub Action
 enable_bark = False  # 启用Bark推送
 bark_token = ""  # Bark推送ID
 # Ticket Stuff
@@ -21,9 +23,9 @@ show_available_only = True  # 只显示有票的日期
 # ==================================
 
 if __name__ == '__main__':
-    if enable_bark and len(bark_token) > 0:
-        toDate = create_assist_date(datestart=startDate, dateend=endDate)  # 船票的起止时间
+    toDate = create_assist_date(datestart=startDate, dateend=endDate)  # 船票的起止时间
 
+    while True:
         for date in toDate:
             ret = request_sail_ticket(request_param={
                 "startSite": startSite,  # 蛇口港
@@ -37,3 +39,6 @@ if __name__ == '__main__':
                     bark_push(token=bark_token, title="船票Get", content=ret)
             else:
                 print(f'{date}没有可用的船票')
+        if enable_gh_action:
+            break
+        time.sleep(600)
