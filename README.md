@@ -26,6 +26,18 @@ enable_gh_action = False  # 启用GitHub Action
 # Bark Push
 enable_bark = False  # 启用Bark推送
 bark_token = ""  # Bark推送ID
+# SMTP config
+enable_mail = False  # 启用邮件推送
+smtp_url = ""
+smtp_port = 25
+smtp_from_address = ""
+smtp_to_address = ""
+smtp_password = ""
+# MailGun config
+enable_mail_gun = False   # 启用MailGun推送
+mailgun_domain_name = ""
+mailgun_api_key = ""
+mailgun_to_address = ""
 # Ticket Stuff
 startSite = "SK"  # 始发站点
 endSite = "HKA"  # 目标站点
