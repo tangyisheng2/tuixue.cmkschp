@@ -4,11 +4,10 @@ import smtplib
 import email.mime.multipart
 import email.mime.text
 import requests
-from main import smtp_url, smtp_port, smtp_from_address, smtp_password, smtp_to_address, \
-    mailgun_domain_name, mailgun_api_key, mailgun_to_address
 
 
 def sendMail(mailContent):
+    from main import smtp_url, smtp_port, smtp_from_address, smtp_password, smtp_to_address
     smtp = smtplib
     smtp = smtplib.SMTP()
     smtp.connect(smtp_url, smtp_port)
@@ -23,6 +22,7 @@ def sendMail(mailContent):
 
 
 def mailGun(mailContent):
+    from main import mailgun_domain_name, mailgun_api_key, mailgun_to_address
     return requests.post(
         "https://api.mailgun.net/v3/" + mailgun_domain_name + "/messages",
         auth=('api', mailgun_api_key),
