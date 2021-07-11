@@ -6,7 +6,7 @@
 import sys
 
 from helper import request_sail_ticket, create_assist_date
-from bark_helper import bark_push
+from helper.bark_helper import bark_push
 import time
 
 # ==================================
