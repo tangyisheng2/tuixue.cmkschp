@@ -5,7 +5,7 @@
 # @Author    :Eason Tang
 import sys
 
-from helper import request_sail_ticket, create_assist_date
+from helper.ticket_helper import request_sail_ticket, create_assist_date
 from helper.bark_helper import bark_push
 import time
 
