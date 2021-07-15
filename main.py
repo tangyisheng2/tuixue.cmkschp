@@ -7,6 +7,7 @@ import sys
 
 from helper.ticket_helper import request_sail_ticket, create_assist_date
 from helper.bark_helper import bark_push
+from helper.serverchan_helper import serverchan_push
 import time
 
 # ==================================
@@ -16,6 +17,9 @@ enable_gh_action = False  # 启用GitHub Action
 # Bark Push
 enable_bark = False  # 启用Bark推送
 bark_token = ""  # Bark推送ID
+# Serverchan Push
+enable_serverchan = False  # 启用Server酱(Turbo)推送
+sct_token = ""  # Sendkey
 # Ticket Stuff
 startSite = "SK"  # 始发站点
 endSite = "HKA"  # 目标站点
@@ -42,6 +46,9 @@ if __name__ == '__main__':
                 print(f'{date}:{ret}')
                 if enable_bark:
                     bark_push(token=bark_token, title="船票Get", content=ret)
+                if enable_serverchan and sct_token != "":
+                    serverchan_push(token=sct_token, title="船票Get", desp=ret)
+
             elif ret == -1:
                 print(f'{date}:爬取失败')
             else:
