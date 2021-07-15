@@ -46,7 +46,7 @@ if __name__ == '__main__':
                 print(f'{date}:{ret}')
                 if enable_bark:
                     bark_push(token=bark_token, title="船票Get", content=ret)
-                if enable_serverchan:
+                if enable_serverchan and sct_token != "":
                     serverchan_push(title="船票Get",desp=ret)
 
             elif ret == -1:
