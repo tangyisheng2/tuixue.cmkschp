@@ -9,16 +9,17 @@ import json
 import requests
 
 
-def serverchan_push(title: str, desp=""):
+def serverchan_push(token, title, desp=""):
     """
     Serverchan推送
+    :param token: Serverchan推送token
     :param title: 推送通知标题
     :param desp: 推送通知内容
     :return: serverchan API返回
     """
-    from main import sct_token
-
-    url = f"https://sctapi.ftqq.com/{sct_token}.send?title={title}&desp={desp}"
+    if token == "":
+        return
+    url = f"https://sctapi.ftqq.com/{token}.send?title={title}&desp={desp}"
     response = requests.request("POST", url)
 
     return json.loads(response.text)

@@ -47,7 +47,7 @@ if __name__ == '__main__':
                 if enable_bark:
                     bark_push(token=bark_token, title="船票Get", content=ret)
                 if enable_serverchan and sct_token != "":
-                    serverchan_push(title="船票Get",desp=ret)
+                    serverchan_push(token=sct_token, title="船票Get", desp=ret)
 
             elif ret == -1:
                 print(f'{date}:爬取失败')
