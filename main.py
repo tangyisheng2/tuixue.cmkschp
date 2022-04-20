@@ -44,6 +44,8 @@ if __name__ == '__main__':
 
     toDate = create_assist_date(datestart=startDate, dateend=endDate)  # 船票的起止时间
 
+    print(f'正在查找{startDate}到{endDate}之间的可用船票')
+
     while True:
         for date in toDate:
             ret = request_sail_ticket(request_param={
