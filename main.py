@@ -39,7 +39,7 @@ if __name__ == '__main__':
         startDate = sys.argv[2].lstrip("--start=")
         endDate = sys.argv[3].lstrip("--end=")
     elif len(sys.argv) > 1 and \
-            "--period=" in sys.argv[1]:
+            "--period=" in sys.argv[2]:
         import datetime
 
         d1 = datetime.date.today()
