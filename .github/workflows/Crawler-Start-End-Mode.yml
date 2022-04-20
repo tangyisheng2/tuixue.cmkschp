@@ -4,9 +4,6 @@
 name: Crawler-Start-End-Mode
 
 on:
-  push:
-  schedule:
-    - cron: "0 0 * * *"
   workflow_dispatch:
     inputs:
       ssh:
