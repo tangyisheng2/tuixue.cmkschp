@@ -13,6 +13,14 @@ on:
         description: 'SSH connection to Actions (For Debug)'
         required: false
         default: 'false'
+      start:
+        description: 'Start Date in YYYY-MM-DD format'
+        required: true
+        default: '2000-01-01'
+      end:
+        description: 'End Date in YYYY-MM-DD format'
+        required: true
+        default: '2000-01-01'
 
 jobs:
   build:
@@ -40,7 +48,7 @@ jobs:
 
     - name: Start Crawling & Barking
       run: |
-        python main.py --action
+        python main.py --action --start=${{github.event.inputs.start}} --end=${{github.event.inputs.end}}
 
 #     - name: Delete workflow runs
 #       uses: GitRML/delete-workflow-runs@main
