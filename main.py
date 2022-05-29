@@ -52,6 +52,7 @@ if __name__ == '__main__':
         d1 = datetime.date.today()
         d2 = (d1 + datetime.timedelta(period))
 
+
         startDate = d1.strftime("%Y-%m-%d")
         endDate = d2.strftime("%Y-%m-%d")
 
