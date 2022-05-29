@@ -44,11 +44,11 @@ jobs:
 
       - name: Start Crawling & Barking
         run: |
-          python main.py --action --period={{github.event.inputs.period}}
+          python main.py --action --period=${{github.event.inputs.period}}
 
-      - name: Delete workflow runs
-        uses: GitRML/delete-workflow-runs@main
-        with:
-          token: ${{ secrets.AUTH_PAT }}
-          repository: ${{ github.repository }}
-          retain_days: 10
+#      - name: Delete workflow runs
+#        uses: GitRML/delete-workflow-runs@main
+#        with:
+#          token: ${{ secrets.AUTH_PAT }}
+#          repository: ${{ github.repository }}
+#          retain_days: 10

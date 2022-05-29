@@ -42,8 +42,16 @@ if __name__ == '__main__':
             "--period=" in sys.argv[2]:
         import datetime
 
+        enable_gh_action = True  # 检测是否在GitHub Action中运行
+        period = sys.argv[2].lstrip("--period=")
+        if not period:
+            period = 30
+        else:
+            period = str(period)    # Convert str to int
+
         d1 = datetime.date.today()
-        d2 = (d1 + datetime.timedelta(float(sys.argv[2].lstrip("--period="))))
+        d2 = (d1 + datetime.timedelta(period))
+
 
         startDate = d1.strftime("%Y-%m-%d")
         endDate = d2.strftime("%Y-%m-%d")
