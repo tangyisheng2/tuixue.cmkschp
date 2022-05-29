@@ -41,10 +41,10 @@ if __name__ == '__main__':
     elif len(sys.argv) > 1 and \
             "--period=" in sys.argv[2]:
         import datetime
+
         period = int(sys.argv[2].lstrip("--period="))
-
-        print(f'周期：{period}')
-
+        if not period:
+            period = 30
 
         d1 = datetime.date.today()
         d2 = (d1 + datetime.timedelta(period))
