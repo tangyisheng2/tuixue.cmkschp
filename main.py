@@ -43,7 +43,7 @@ if __name__ == '__main__':
         import datetime
 
         d1 = datetime.date.today()
-        d2 = (d1 + datetime.timedelta(60))
+        d2 = (d1 + datetime.timedelta(int(sys.argv[2].lstrip("--period="))))
 
         startDate = d1.strftime("%Y-%m-%d")
         endDate = d2.strftime("%Y-%m-%d")
