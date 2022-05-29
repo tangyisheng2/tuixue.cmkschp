@@ -41,7 +41,7 @@ if __name__ == '__main__':
     elif len(sys.argv) > 1 and \
             "--period=" in sys.argv[2]:
         import datetime
-
+        print(datetime.date.today())
         d1 = datetime.date.today()
         d2 = (d1 + datetime.timedelta(60))
 
