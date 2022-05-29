@@ -42,6 +42,7 @@ if __name__ == '__main__':
             "--period=" in sys.argv[2]:
         import datetime
 
+        enable_gh_action = True  # 检测是否在GitHub Action中运行
         period = sys.argv[2].lstrip("--period=")
         if not period:
             period = 30
