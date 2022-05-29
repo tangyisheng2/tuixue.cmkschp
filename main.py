@@ -41,9 +41,13 @@ if __name__ == '__main__':
     elif len(sys.argv) > 1 and \
             "--period=" in sys.argv[2]:
         import datetime
-        print(datetime.date.today())
+        period = int(sys.argv[2].lstrip("--period="))
+
+        print(f'周期：{period}')
+
+
         d1 = datetime.date.today()
-        d2 = (d1 + datetime.timedelta(60))
+        d2 = (d1 + datetime.timedelta(period))
 
         startDate = d1.strftime("%Y-%m-%d")
         endDate = d2.strftime("%Y-%m-%d")
