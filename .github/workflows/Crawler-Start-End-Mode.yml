@@ -47,9 +47,9 @@ jobs:
         run: |
           python main.py --action --start=${{github.event.inputs.start}} --end=${{github.event.inputs.end}}
 
-      - name: Delete workflow runs
-        uses: GitRML/delete-workflow-runs@main
-        with:
-          token: ${{ secrets.AUTH_PAT }}
-          repository: ${{ github.repository }}
-          retain_days: 10
+#       - name: Delete workflow runs
+#         uses: GitRML/delete-workflow-runs@main
+#         with:
+#           token: ${{ secrets.AUTH_PAT }}
+#           repository: ${{ github.repository }}
+#           retain_days: 10
